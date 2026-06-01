@@ -37,10 +37,16 @@ plugins {
 
 include(":androidApp")
 include(":desktopApp")
+
 include(":core:domain")
 include(":core:presentation")
 include(":core:designsystem")
 include(":core:data")
+
 include(":feature:auth:presentation")
 include(":feature:auth:domain")
 
+include(":feature:chat:presentation")
+include(":feature:chat:domain")
+include(":feature:chat:data")
+include(":feature:chat:database")

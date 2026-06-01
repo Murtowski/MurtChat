@@ -1,5 +1,8 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
-    alias(libs.plugins.convention.cmp.feature)
+    alias(libs.plugins.convention.kmp.library)
+    alias(libs.plugins.convention.buildkonfig)
 }
 
 kotlin {
@@ -13,23 +16,24 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.stdlib)
 
-                implementation(projects.feature.auth.domain)
+                implementation(projects.core.data)
                 implementation(projects.core.domain)
-                implementation(projects.core.designsystem)
-                implementation(projects.core.presentation)
+                implementation(projects.feature.chat.domain)
+                implementation(projects.feature.chat.database)
 
-                implementation(libs.bundles.koin.common)
-
-                implementation(compose.components.resources)
-                implementation(compose.components.uiToolingPreview)
+                implementation(libs.bundles.ktor.common)
+                implementation(libs.koin.core)
             }
         }
 
         androidMain {
             dependencies {
-                // Add Android-specific dependencies here. Note that this source set depends on
-                // commonMain by default and will correctly pull the Android artifacts of any KMP
-                // dependencies declared in commonMain.
+                implementation(libs.koin.android)
+                implementation(libs.androidx.lifecycle.process)
+
+                implementation(project.dependencies.platform(libs.firebase.bom))
+                implementation(libs.firebase.messaging)
+                implementation(libs.koin.android)
             }
         }
 
@@ -44,4 +48,13 @@ kotlin {
         }
     }
 
+    targets.withType<KotlinNativeTarget> {
+        compilations.getByName("main") {
+            cinterops {
+                create("network") {
+                    defFile(file("src/nativeInterop/cinterop/network.def"))
+                }
+            }
+        }
+    }
 }
