@@ -41,3 +41,6 @@ include(":core:domain")
 include(":core:presentation")
 include(":core:designsystem")
 include(":core:data")
+include(":feature:auth:presentation")
+include(":feature:auth:domain")
+
