@@ -24,18 +24,18 @@ kotlin {
             implementation(libs.koin.android)
         }
         commonMain.dependencies {
-//            implementation(projects.core.data)
-//            implementation(projects.core.domain)
-//            implementation(projects.core.designsystem)
-//            implementation(projects.core.presentation)
-//
-//            implementation(projects.feature.auth.domain)
-//            implementation(projects.feature.auth.presentation)
-//
-//            implementation(projects.feature.chat.data)
-//            implementation(projects.feature.chat.database)
-//            implementation(projects.feature.chat.domain)
-//            implementation(projects.feature.chat.presentation)
+            implementation(projects.core.data)
+            implementation(projects.core.domain)
+            implementation(projects.core.designsystem)
+            implementation(projects.core.presentation)
+
+            implementation(projects.feature.auth.domain)
+            implementation(projects.feature.auth.presentation)
+
+            implementation(projects.feature.chat.data)
+            implementation(projects.feature.chat.database)
+            implementation(projects.feature.chat.domain)
+            implementation(projects.feature.chat.presentation)
 
             implementation(libs.jetbrains.compose.navigation)
             implementation(libs.jetbrains.nav3.navigation3Ui)
