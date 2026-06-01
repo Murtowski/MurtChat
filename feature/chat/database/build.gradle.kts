@@ -1,5 +1,6 @@
 plugins {
-    alias(libs.plugins.convention.cmp.feature)
+    alias(libs.plugins.convention.kmp.library)
+    alias(libs.plugins.convention.room)
 }
 
 kotlin {
@@ -12,16 +13,8 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.kotlin.stdlib)
-
-                implementation(projects.feature.auth.domain)
-                implementation(projects.core.domain)
-                implementation(projects.core.designsystem)
-                implementation(projects.core.presentation)
-
-                implementation(libs.bundles.koin.common)
-
-                implementation(compose.components.resources)
-                implementation(compose.components.uiToolingPreview)
+                implementation(projects.core.data)
+                // Add KMP dependencies here
             }
         }
 
