@@ -1,18 +1,63 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-
 plugins {
-    alias(libs.plugins.kotlinJvm)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.convention.cmp.application)
+    alias(libs.plugins.compose.hot.reload)
+    alias(libs.plugins.conveyor)
 }
 
-dependencies {
-    implementation(projects.shared)
+version = "1.0.0"
 
-    implementation(compose.desktop.currentOs)
-    implementation(libs.kotlinx.coroutinesSwing)
+kotlin {
+    androidLibrary {
+        compileSdk = 36
+        minSdk = 26
+        namespace = "com.murt.chat.desktopApp"
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
+    }
 
-    implementation(libs.compose.uiToolingPreview)
+    sourceSets {
+        androidMain.dependencies {
+            implementation(compose.preview)
+            implementation(libs.androidx.activity.compose)
+
+            implementation(libs.core.splashscreen)
+
+            implementation(libs.koin.android)
+        }
+        commonMain.dependencies {
+            implementation(libs.jetbrains.compose.navigation)
+            implementation(libs.jetbrains.nav3.navigation3Ui)
+            implementation(libs.jetbrains.nav3.material3AdaptiveNavigation3)
+            implementation(libs.jetbrains.nav3.lifecycleViewmodelNavigation3)
+            implementation(libs.bundles.koin.common)
+
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(libs.jetbrains.compose.viewmodel)
+            implementation(libs.jetbrains.lifecycle.compose)
+        }
+
+        desktopMain.dependencies {
+//            implementation(projects.core.presentation)
+            implementation(compose.desktop.currentOs)
+            implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.kotlin.stdlib)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.jsystemthemedetector)
+
+            implementation(compose.desktop.linux_x64)
+            implementation(compose.desktop.linux_arm64)
+            implementation(compose.desktop.macos_x64)
+            implementation(compose.desktop.macos_arm64)
+            implementation(compose.desktop.windows_x64)
+            implementation(compose.desktop.windows_arm64)
+        }
+    }
 }
 
 compose.desktop {
@@ -20,9 +65,7 @@ compose.desktop {
         mainClass = "com.murt.chat.MainKt"
 
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.murt.chat"
-            packageVersion = "1.0.0"
         }
     }
 }
