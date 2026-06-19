@@ -1,18 +1,18 @@
 [versions]
 # Build tools
 agp = "9.2.1"
-composeBom = "2026.05.01"
-kotlin = "2.3.21"
+composeBom = "2026.06.00"
+kotlin = "2.4.0"
 ksp = "2.3.6"
-google-services = "4.4.4"
-conveyor = "1.12"
+google-services = "4.5.0"
+conveyor = "2.0"
 
 androidDesugarJdkLibs = "2.1.5"
 androidTools = "32.2.1"
 
 # Compose
 compose-hot-reload = "1.1.1"
-compose-multiplatform = "1.11.0"
+compose-multiplatform = "1.11.1"
 # Maintain compose multiplatform version aligned with navigation, cache error could happen
 compose-lifecycle = "2.10.0"
 jetbrains-core-bundle = "1.0.1"
@@ -21,13 +21,13 @@ material-icons = "1.7.3"
 # Navigation3
 navigation-compose = "2.9.2"
 multiplatform-nav3-ui = "1.1.1"
-compose-multiplatform-adaptive = "1.3.0-beta01"
+compose-multiplatform-adaptive = "1.3.0-beta02"
 compose-multiplatform-lifecycle = "2.10.0"
 
 # AndroidX
 androidx-activity = "1.13.0"
-androidx-core = "1.18.0"
-androidx-lifecycle = "2.10.0"
+androidx-core = "1.19.0"
+androidx-lifecycle = "2.11.0"
 androidx-test-ext = "1.2.1"
 androidx-runner = "1.6.2"
 androidx-test-core = "1.7.0"
@@ -40,17 +40,17 @@ kotlinx-serialization = "1.11.0"
 kotlinx-datetime = "0.8.0"
 
 # Third party
-koin = "4.2.1"
+koin = "4.2.2"
 ktor = "3.5.0"
 room = "2.8.4"
 sqlite = "2.6.2"
 datastore = "1.2.1"
-firebase-bom = "34.14.0"
+firebase-bom = "34.15.0"
 adaptive = "1.2.0"
 compose-material3 = "1.9.0"
 jetbrains-savedstate = "1.4.0"
-coil = "3.4.0"
-coil-network = "3.4.0"
+coil = "3.5.0"
+coil-network = "3.5.0"
 moko = "0.20.1"
 buildkonfig = "0.21.2"
 kermit = "2.1.0"
